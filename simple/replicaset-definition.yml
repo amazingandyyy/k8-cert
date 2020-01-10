@@ -1,0 +1,36 @@
+# kubectl create -f replicaset-definition.yml
+# kubectl get replicasets
+# kubectl get pods
+
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: myapp-replicaset
+  labels:
+    app: myapp
+    type: front-end
+
+spec:
+  template:
+    metadata:
+      name: myapp-pod
+      labels:
+        app: myapp
+        type: front-end
+    spec:
+      containers:
+        - name: nginx-container
+          image: nginx
+  replicas: 3
+  selector:
+    matchLabels:
+      type: front-end
+# scale up to 6
+# 1. change replicas to 6 then run
+#    kubectl replace -f replicaset-definition.yml
+# 2. kubectl scale --replicas=6 replicaset-definition.yml
+# 3. kubectl scale --replicas=6 replicaset myapp-replicaset
+
+# kubectl get rs
+# kubectl edit rs new-replica-set
+# kubectl describe rs
