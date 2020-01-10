@@ -27,7 +27,8 @@ kubectl get pods -o wide
 
 kubectl label nodes node-1 size=Large # then use nodeSelector in pod-definition.yaml
 kubectl get pods -o wide
-affinity: https://raw.githubusercontent.com/kubernetes/website/master/content/en/examples/pods/pod-with-node-affinity.yaml
+# affinity: https://raw.githubusercontent.com/kubernetes/website/master/content/en/examples/pods/pod-with-node-affinity.yaml
+# readinessProbe: https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/#define-readiness-probes
+# livenessProbe: https://raw.githubusercontent.com/kubernetes/website/master/content/en/examples/pods/probe/http-liveness.yaml
 ```
 
-## Multiple container pod
