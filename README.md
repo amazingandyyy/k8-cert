@@ -30,5 +30,28 @@ kubectl get pods -o wide
 # affinity: https://raw.githubusercontent.com/kubernetes/website/master/content/en/examples/pods/pod-with-node-affinity.yaml
 # readinessProbe: https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/#define-readiness-probes
 # livenessProbe: https://raw.githubusercontent.com/kubernetes/website/master/content/en/examples/pods/probe/http-liveness.yaml
+
+kubectl logs web-app-1
+minikube addons enable metrics-server
+
+git clone git@github.com:kubernetes-sigs/metrics-server.git 
+kubectl create -f ./deploy/1.8+/
+kubectl top node
+kubectl top pod
+
+# metadata.labels
+# annotation
+
+kubectl rollout status deployment/myapp-depoyment
+kubectl rollout history deployment/myapp-depoyment
+kubectl rollout undo deployment/myapp-depoyment
+
+kubectl apply -f deployment-def.yaml # update a deployment
+# or
+kubectl set image deployment/myapp-depoyment nginx=nginx:1.9.1
+kubectl run nginx --image=nginx # deployment created
+kubectl edit deployment/frontend
+# Job
+# CronJob
 ```
 
