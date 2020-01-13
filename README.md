@@ -53,5 +53,25 @@ kubectl run nginx --image=nginx # deployment created
 kubectl edit deployment/frontend
 # Job
 # CronJob
+# Service (NodePort, ClusterIP, LoadBalancer)
+
+$ kubectl expose deployment ingress-controller --n ingress-space --type=NodePort --port=80 --name=ingress --dry-run -o yaml > ingress.yaml
+O kubectl expose deployment redis --port=6379 --name messaging-service --namespace marketing
+x kubectl expose deployment -n marketing redis --type=NodePort --port=6379 --name=messaging-service
 ```
 
+## config
+
+- configMap
+- securityContext capabalities add ["SYS_TIME"]
+
+## Important concept
+
+- kubectl expose
+- nodePort service
+- kubectl taint nodes node01 spray=mortein:NoSchedule
+- toleration
+- kubectl label
+- affinity
+- ingress
+- readinessProbe
